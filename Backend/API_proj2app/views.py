@@ -62,7 +62,6 @@ class requestHandlers(View):
         # session_name = request.session["session_name"]
         # print(request.META)
         # print(dir(request))
-        print(request.user.hash_id)
         hash_id = request.user.hash_id
         # Decode request body content
         content = QueryDict(request.body.decode('utf-8')).dict()
@@ -82,10 +81,12 @@ class requestHandlers(View):
             photo = content["photo"]
             text = content["text"]
             date = content["date"]
+            photo = photo.encode('ascii')
 
             # Create a memory and save its reference to access id
-            memory = Memory.object.create(hash_id = hash_id, title = title, image = photo, text = text, date = date)
+            memory = Memory(hash_id = hash_id, title = title, image = bytearray(photo), text = text, date = date)
             memory.save()
+
             # Return id as part of JsonResponse so frontend can set id
             return JsonResponse({'status':'false', "message": "memory POSTed", "id": memory.id}, status=201) #201 -> new resource created
 
@@ -95,8 +96,9 @@ class requestHandlers(View):
             data = {"title": content["title"], "photo": content["photo"], "text": content["text"], "date": content["date"]}
             id = content["id"]
 
+
             # Access memory based on id
-            memory = Memory.objects.get(id=id)
+            memory = Memory.objects.get(id=int(id))
 
             # Update memory
             for (key, value) in data.items():
