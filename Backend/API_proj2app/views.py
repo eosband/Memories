@@ -102,8 +102,8 @@ class requestHandlers(View):
 
             # Update memory
             for (key, value) in data.items():
-                setattr(object, key, value)
-            object.save() #save the modified object
+                setattr(memory, key, value)
+            memory.save() #save the modified object
 
             data["status"] = "true"
             data["message"] = "memory PATCHed"
