@@ -10,7 +10,7 @@ django-heroku = "*"
 gunicorn = "*"
 djangorestframework = "*"
 Django = "*"
-pillow = "==5.4.1"
+pillow = "==7.1.0"
 
 [requires]
 python_version = "3.6"
