@@ -13,3 +13,6 @@ To run a simulation of the Memories app:
 2. Open the Frontend Folder
 3. Open Memories.xcodeproj
 4. Click the play button in the top left corner to run the simulator
+
+**Demo**
+https://www.youtube.com/watch?v=IAquNRi0T-M&feature=youtu.be
