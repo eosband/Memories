@@ -1,4 +1,9 @@
-# Project-2
+# Memories app
+
+**About**
+The Memories app is a full stack iOS application dedicated to saving memories. The user can create and save dated memories that include a title, photo, and description to store their memory.
+
+The backend is developed with Django and hosted on Heroku, while the frontend was developed using Swift. To date, this has not been published to the app store.
 
 **Instructions**
 
